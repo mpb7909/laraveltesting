@@ -1,0 +1,158 @@
+/*high level container stuff*/
+body{
+	overflow:hidden;
+}
+
+#page_masthead{
+	
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	height:10vh;
+	border-bottom:solid 0.1rem rgb(141,146,155);
+	
+
+}
+
+#page_masthead .p_dev_warning{
+	position:absolute;
+	display:block;
+	left:0;
+	right:0;
+	height:3vh;
+	font-size:1vh;
+	padding:0.5vh;
+	text-align:center;
+}
+
+#page_masthead h1{
+	
+	display:block;
+	font-size:6vh;
+	margin:0;
+	padding:2vh;
+	padding-top:1vh;
+	height:100%;
+	width:85%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	
+}
+
+#a_page_control{
+	
+	display:block;
+	position:absolute;
+	width:8vh;
+	height:8vh;
+	overflow:hidden;
+	top:1vh;
+	right:1vh;
+	border:solid 0.1rem blue;
+}
+
+#page_control,#work_area{
+	
+	position:fixed;
+	top:10vh;
+	left:0;
+	right:0;
+	bottom:0em;
+	overflow:hidden;
+	overflow-y:auto;
+
+}
+
+#page_control{display:none;}
+body.show_page_control #work_area{
+	overflow-y:hidden;
+}
+body.show_page_control #page_control{
+	display:block;
+	z-index:99;
+}
+
+@media (min-width: 768px) {
+
+	#page_masthead{
+		
+		height:4em;
+		
+	}
+	
+	#page_masthead h1{
+		font-size:1.5em;
+		padding:0.25em;
+		width:100%;
+	}
+	
+	
+	#a_page_control{
+		
+		display:inline;
+		top:unset;
+		right:unset;
+		width:auto;
+		height:auto;
+		font-size:0.75em;
+		bottom:0.5em;
+		left:0.5em;
+	}
+	
+	#page_control,#work_area{
+		top:4em;
+	}
+	
+	body.show_page_control #page_control{
+		right:unset;
+		width:33%;
+	}
+	
+	body.show_page_control #work_area{
+		left:33%;
+		width:67%;
+		overflow-y:auto;
+	}	
+}
+
+
+
+
+
+/*=========================================================================================*/
+.h2_contentTitle{display:none;}
+
+.ul_tile_list{
+	padding:0em;
+	margin:0em;
+	text-align:left;
+}
+
+.ul_tile_list li{
+	list-style-type:none;
+}
+
+.ul_tile_list > *{
+	
+	display:inline-block;
+	width:0rem;
+	height:0rem;
+	padding:0rem;
+	padding-bottom:0rem;
+	margin:0rem;
+	border:solid rgb(41,46,55) 0.1rem;
+	box-style:border-box;
+	overflow:hidden;
+}
+
+#work_area > .ul_tile_list > *{
+	
+	width:95%;
+	padding-bottom:95%;
+	margin:2%;
+	
+}
+
+

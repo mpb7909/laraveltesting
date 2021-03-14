@@ -1,0 +1,239 @@
+/*
+col-sm for larger mobile phones (devices with resolutions ≥ 576px);
+col-md for tablets (≥768px);
+col-lg for laptops (≥992px);
+col-xl for desktops (≥1200px)
+*/
+
+/*high level container stuff*/
+body{
+	overflow:hidden;
+}
+
+#viewport{
+	position:absolute;
+	top:0rem;
+	left:0rem;
+	right:0rem;
+	bottom:0rem;
+	overflow:hidden;
+}
+
+body.in_dev_env #viewport{
+	top:1rem;
+	bottom:1rem;
+}
+
+.dev_warning{
+	position:absolute;
+	left:0rem;
+	right:0rem;
+	height:1rem;
+	text-align:center;
+	font-size:0.75rem;
+	font-weight:bold;
+	padding:0rem;
+}
+#dev_warning_top{top:0rem;}
+#dev_warning_bottom{bottom:0rem;}
+
+#page_masthead{
+	
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	height:2rem;
+	border-bottom:solid 0.1rem rgb(141,146,155);
+	overflow:hidden;
+}
+
+#page_masthead h1{
+	
+	display:block;
+	position:absolute;
+	font-size:1rem;
+	margin:0;
+	padding:0.5rem;
+	padding-top:1vh;
+	height:100%;
+	left:0rem;
+	right:2rem;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	
+}
+
+#get_page_control{
+	
+	display:block;
+	position:absolute;
+	width:1.6rem;
+	height:1.6rem;
+	overflow:hidden;
+	top:0.2rem;
+	right:0.2rem;
+	border:solid 0.1rem blue;
+}
+
+#page_control,#work_area{
+	
+	position:absolute;
+	top:2rem;
+	left:0rem;
+	right:0rem;
+	bottom:0rem;
+	overflow:hidden;
+	overflow-y:auto;
+}
+
+#page_control{
+	display:none;
+	z-index:99;
+}
+body.use_page_control.show_page_control #work_area{
+	overflow-y:hidden;
+}
+body.use_page_control.show_page_control #page_control{
+	display:block;
+}
+
+
+@media (min-width: 768px) {
+	
+	body.use_page_control #get_page_control{
+		top:2.2rem;
+		right:unset;
+		left:0.2rem;
+		background-color:white;
+		z-index:100;
+	}
+	body.use_page_control #page_control{
+		display:block;
+		right:unset;
+		width:2rem;
+	}
+	body.use_page_control #page_control *{
+		display:none;
+	}
+	
+	body.use_page_control #work_area{
+		left:2rem;
+	}
+	
+	body.use_page_control.show_page_control #work_area{
+		overflow-y:auto;
+		left:33%;
+		width:67%;
+	}
+	body.use_page_control.show_page_control #page_control{
+		width:33%;
+		padding:1rem;
+		padding-top:2.25rem;
+		padding-left:2.25rem;
+	
+	}
+	body.use_page_control.show_page_control #page_control *{
+		display:initial;
+	}
+}
+
+/*====================================================================================*/
+
+
+/*=========================================================================================*/
+/* .h2_contentTitle{display:none;} */
+
+ul.tile_list{
+	padding:0em;
+	margin:0em;
+	text-align:left;
+	overflow:hidden;
+}
+
+ul.tile_list li{
+	list-style-type:none;
+}
+
+ul.tile_list > *{
+	
+	display:block;
+	float:left;
+	width:0rem;
+	height:0rem;
+	padding:0rem;
+	padding-bottom:0rem;
+	margin:0rem;
+	border:solid rgb(41,46,55) 0.1rem;
+	overflow:hidden;
+	/*box-style:border-box;*/
+	overflow:hidden;
+}
+
+
+ul.tile_list.dashboard{
+	margin-top:10%;
+}
+
+ul.tile_list.dashboard > *{
+	width:80%;
+	padding-bottom:80%;
+	margin:10%;
+	margin-top:0;
+}
+
+
+@media (min-width: 576px) {
+	
+	ul.tile_list.dashboard{
+		border:solid green 0.1em;
+		margin-top:0em;
+		margin-right:auto;
+		margin-left:auto;
+		width:530px;
+		box-sizing:content-box;
+	}
+	
+	body.use_page_control.show_page_control ul.tile_list.dashboard{	
+		width:350px;
+	}
+
+	ul.tile_list.dashboard > *{
+		width:245px;
+		height:245px;
+		padding-bottom:unset;
+		margin:5px;
+	}
+	body.use_page_control.show_page_control ul.tile_list.dashboard > *{
+		margin-left:43px;
+	}
+}
+
+@media (min-width: 768px) {
+	
+	ul.tile_list.dashboard{
+		width:100%;
+		margin-right:unset;
+		margin-left:unset;
+	}
+	body.use_page_control.show_page_control ul.tile_list.dashboard{	
+		width:unset;
+	}
+	ul.tile_list.dashboard > *{
+		width:230px;
+		height:230px;
+		margin:2px;
+		margin-left:unset;
+	}
+	body.use_page_control.show_page_control ul.tile_list.dashboard > *{
+		margin:2px;
+	}
+}
+
+/*
+col-sm for larger mobile phones (devices with resolutions ≥ 576px);
+col-md for tablets (≥768px);
+col-lg for laptops (≥992px);
+col-xl for desktops (≥1200px)
+*/
