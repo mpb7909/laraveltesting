@@ -38,3 +38,5 @@ Route::get('/option1/sop/search', function() {return view("option1.sop-search");
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//martin's live update
