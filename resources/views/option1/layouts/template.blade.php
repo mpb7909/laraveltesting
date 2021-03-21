@@ -7,16 +7,21 @@
 		@if($page_is_dev ?? 0 >= 1)		in_dev_env			@endif
 	">
 		
-		@if($page_is_dev ?? 0 >= 1)
-		<div id="dev_warning_top" class="dev_warning bg-info text-white">***DEV ENVIRONMENT***</div>
-		@endif
+		
 		
 		<div id="viewport">
 			<div id="page_masthead">
+				<div class="container-fluid	@if($page_is_dev ?? 0 >= 1)	bg-dark text-white @endif">
+				<h1>
+				@if($page_is_dev ?? 0 >= 1)
+				DEV-LHDB
+				@else
+				LVDB
+				@endif
+				@if(isset($page_h1)) | {{	$page_h1	}}	@endif
 				
-				<h1>LVDB
-				@if(isset($page_h1)) | {{	$page_h1	}}	@endif</h1>	
-				
+				</h1>	
+				</div>
 			</div>
 			
 			@if($page_control ?? 0 >= 1)
@@ -26,21 +31,18 @@
 				</a>
 				
 				<div id="page_control" class="bg-dark text-white">
-					<h2>This is page control</h2>
+					@yield("page_control")
 				</div>
 				
 			@endif
 			
 			<div id="work_area" >
-				<div class="container-fluid" style="border:solid red 0.1rem;">
+				<div class="container-fluid">
 					@yield("work_area")
 				</div>
 			</div>
 		</div>
 		
-		@if($page_is_dev ?? 0 >= 1)
-		<div id="dev_warning_bottom" class="dev_warning bg-info text-white">***DEV ENVIRONMENT***</div>
-		@endif
 		
     </body>
 </html>

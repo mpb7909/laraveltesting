@@ -10,6 +10,11 @@ body{
 	overflow:hidden;
 }
 
+h1,h2,h3,h4,h5,h6{
+	font-size:inherit;
+	padding:0em;
+}
+
 #viewport{
 	position:absolute;
 	top:0rem;
@@ -19,46 +24,30 @@ body{
 	overflow:hidden;
 }
 
-body.in_dev_env #viewport{
-	top:1rem;
-	bottom:1rem;
-}
-
-.dev_warning{
-	position:absolute;
-	left:0rem;
-	right:0rem;
-	height:1rem;
-	text-align:center;
-	font-size:0.75rem;
-	font-weight:bold;
-	padding:0rem;
-}
-#dev_warning_top{top:0rem;}
-#dev_warning_bottom{bottom:0rem;}
-
 #page_masthead{
 	
 	position:absolute;
 	top:0;
 	left:0;
 	right:0;
-	height:2rem;
+	height:3rem;
 	border-bottom:solid 0.1rem rgb(141,146,155);
 	overflow:hidden;
+}
+
+
+#page_masthead > .container-fluid{
+	height:100%;
+	position:relative;
 }
 
 #page_masthead h1{
 	
 	display:block;
-	position:absolute;
-	font-size:1rem;
-	margin:0;
-	padding:0.5rem;
-	padding-top:1vh;
-	height:100%;
-	left:0rem;
-	right:2rem;
+	position:relative;
+	font-size:inherit;
+	width:80%;
+	padding-top:0.8rem;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -69,20 +58,21 @@ body.in_dev_env #viewport{
 	
 	display:block;
 	position:absolute;
-	width:1.6rem;
-	height:1.6rem;
+	width:2rem;
+	height:2rem;
 	overflow:hidden;
-	top:0.2rem;
-	right:0.2rem;
+	top:0.5rem;
+	right:0.5rem;
 	border:solid 0.1rem blue;
 }
 
 #page_control,#work_area{
 	
 	position:absolute;
-	top:2rem;
+	top:3rem;
 	left:0rem;
 	right:0rem;
+	padding-top:1rem;
 	bottom:0rem;
 	overflow:hidden;
 	overflow-y:auto;
@@ -91,7 +81,18 @@ body.in_dev_env #viewport{
 #page_control{
 	display:none;
 	z-index:99;
+	padding:1rem;
 }
+
+#page_control .page_control_divider{
+	
+	width:100%;
+	min-height:0.25rem;
+	background-color:white;
+	margin-top:0.75rem;
+	margin-bottom:0.75rem;
+}
+
 body.use_page_control.show_page_control #work_area{
 	overflow-y:hidden;
 }
@@ -103,19 +104,21 @@ body.use_page_control.show_page_control #page_control{
 @media (min-width: 768px) {
 	
 	body.use_page_control #get_page_control{
-		top:2.2rem;
+		top:49%;
 		right:unset;
 		left:0.2rem;
+		height:1.6rem;
+		width:1.6rem;
 		background-color:white;
 		z-index:100;
 	}
 	body.use_page_control #page_control{
 		display:block;
 		right:unset;
-		width:2rem;
-	}
-	body.use_page_control #page_control *{
-		display:none;
+		width:0rem;
+		padding:0rem;
+		padding-left:2rem;
+		font-size:0.66rem;
 	}
 	
 	body.use_page_control #work_area{
@@ -130,22 +133,38 @@ body.use_page_control.show_page_control #page_control{
 	body.use_page_control.show_page_control #page_control{
 		width:33%;
 		padding:1rem;
-		padding-top:2.25rem;
-		padding-left:2.25rem;
-	
+		padding-left:3rem;
+		padding-right:2rem;
 	}
-	body.use_page_control.show_page_control #page_control *{
-		display:initial;
+	
+}
+
+@media (min-width: 992px) {
+	
+	body.use_page_control #page_control{
+		display:block;
+		font-size:0.8rem;
 	}
 }
 
-/*====================================================================================*/
 
+@media (min-width: 992px) {
+	
+	body.use_page_control #page_control{
+		display:block;
+		font-size:0.9rem;
+	}
+}
+/*========================================================================================= .tile_list	*/
+/*
 
-/*=========================================================================================*/
-/* .h2_contentTitle{display:none;} */
+presenting an unordered list as a collection of tiles
 
+can be in the format ul>a>li or ul>li
+
+*/
 ul.tile_list{
+	position:relative;
 	padding:0em;
 	margin:0em;
 	text-align:left;
@@ -157,8 +176,8 @@ ul.tile_list li{
 }
 
 ul.tile_list > *{
-	
 	display:block;
+	position:relative;
 	float:left;
 	width:0rem;
 	height:0rem;
@@ -167,13 +186,35 @@ ul.tile_list > *{
 	margin:0rem;
 	border:solid rgb(41,46,55) 0.1rem;
 	overflow:hidden;
-	/*box-style:border-box;*/
-	overflow:hidden;
 }
 
+/*adaptation of the class for presenting inside the page_control con*/
+body.use_page_control.show_page_control #page_control ul.tile_list > *{
+	
+	color:white;
+	border:unset;
+	border:solid 0.1rem;
+	width:46%;
+	padding-bottom:46%;
+	margin:2%;	
+	
+}
 
+@media (min-width: 992px) {
+	
+	body.use_page_control.show_page_control #page_control ul.tile_list > *{
+		
+		width:30%;
+		padding-bottom:30%;
+		margin:0%;
+		margin-right:3%;
+		margin-bottom:1rem;
+	}	
+}
+/*adaptation of the .tile_list class if it's classed as a dashboard variation, starting based on expected minimal screen*/
 ul.tile_list.dashboard{
-	margin-top:10%;
+	width:100%;
+	padding-top:1rem;
 }
 
 ul.tile_list.dashboard > *{
@@ -183,53 +224,40 @@ ul.tile_list.dashboard > *{
 	margin-top:0;
 }
 
-
 @media (min-width: 576px) {
 	
 	ul.tile_list.dashboard{
-		border:solid green 0.1em;
-		margin-top:0em;
-		margin-right:auto;
-		margin-left:auto;
-		width:530px;
-		box-sizing:content-box;
+		padding-top:0rem;
 	}
-	
-	body.use_page_control.show_page_control ul.tile_list.dashboard{	
-		width:350px;
-	}
-
 	ul.tile_list.dashboard > *{
-		width:245px;
-		height:245px;
-		padding-bottom:unset;
-		margin:5px;
-	}
-	body.use_page_control.show_page_control ul.tile_list.dashboard > *{
-		margin-left:43px;
+		float:left;
+		width:43%;
+		padding-bottom:43%;
+		margin:3%;
 	}
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
 	
-	ul.tile_list.dashboard{
-		width:100%;
-		margin-right:unset;
-		margin-left:unset;
-	}
-	body.use_page_control.show_page_control ul.tile_list.dashboard{	
-		width:unset;
-	}
 	ul.tile_list.dashboard > *{
-		width:230px;
-		height:230px;
-		margin:2px;
-		margin-left:unset;
-	}
-	body.use_page_control.show_page_control ul.tile_list.dashboard > *{
-		margin:2px;
+		float:left;
+		width:29%;
+		padding-bottom:29%;
+		margin:2%;
 	}
 }
+
+@media (min-width: 1200px) {
+	
+	ul.tile_list.dashboard > *{
+		float:left;
+		width:23%;
+		padding-bottom:24%;
+		margin:1%;
+	}
+}
+
+
 
 /*
 col-sm for larger mobile phones (devices with resolutions ≥ 576px);
