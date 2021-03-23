@@ -5,6 +5,9 @@ namespace App\Http\Controllers\option1;
 use Illuminate\Http\Request;
 use DB;
 
+use App\Models\customer as cu;
+use App\Models\contact;
+
 
 class SOPControl extends serviceControl
 {
@@ -36,9 +39,15 @@ class SOPControl extends serviceControl
 		$this->arg["page_control"] = 1;
 		$this->arg["page_title"] = "SOP search";
 		$this->arg["page_h1"] = "SOP search";
-		
 		$this->arg["page_js"] = array(0 => "/cdn/option1/sop.js");
 		
+		// $cu = new cu();
+		$this->arg["customers"] = cu::all();
+		
+		// $perCo = new perCo(); 
+		$this->arg["contacts"] = contact::get_contacts(array("something" => 1));
+		
+		//dd($this->arg["customers"]);
 		return view("option1.sop",$this->arg);	
 	
 	}

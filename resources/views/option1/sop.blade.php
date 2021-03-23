@@ -1,11 +1,11 @@
 @extends("option1.layouts.template")
 	
-
+	
 
 @section("work_area")
-
-	<p>Please use the search options to locate some info or something</p>
 	
+	@include('option1.partials.sop-search-results')
+
 @endsection
 
 @section("page_control")

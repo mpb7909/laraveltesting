@@ -1,27 +1,51 @@
-	<!--<pre style="font-size:0.66rem">{{	print_r($contacts,true)	}}</pre>-->
-<h3>Contact results</h3>
+@if(count($customers ?? array()) < 1 && count($customers ?? array()) < 1) 	
 	
-@if(count($contacts) < 1)
 	<p>There were no results for your search</p>
+
 @else
 	
-	<table class="table">
+	@if($contacts ?? -1!== -1)
+		<h3>Contact results</h3>
+		<table class="table">
+			<thead>
+				<th>Contact No.</th>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Acc. Number</th>
+			</thead>
+			<tbody>
+			@foreach($contacts as $pc)
+				<tr class="bg-dark">
+					<td>{{	$pc->number	}}</td>
+					<td>{{	$pc->name	}}</td>
+					<td>{{	$pc->email	}}</td>
+					<td>{{	$pc->customer_id	}}</td>
+				</tr>			
+			@endforeach		
+			</tbody>
+		</table>
+	
+	@endif
+	
+	@if($customers ?? -1!== -1)
+		<h3>Customers results</h3>
+		<table class="table">
 		<thead>
-			<th>Contact No.</th>
-			<th>Name</th>
-			<th>Email</th>
-			<th>Acc. Number</th>
+		<th>Customer No.</th>
+		<th>Name</th>
+		<th>Posting Group</th>
+		<th>Blocked</th>
 		</thead>
 		<tbody>
-		@foreach($contacts as $c)
-		<tr class="bg-light">
-			<td><a target="_blank" class="a_child_tab" href="sop/contacts/{{	$c->number	}}">{{	$c->number	}}</a></td>
-			<td>{{	$c->name	}}</td>
-			<td>{{	$c->email	}}</td>
-			<td>{{	$c->customer_number	}}</td>
-		</tr>
+		@foreach($customers as $c)
+			<tr class="bg-light">
+				<td>{{	$c->number	}}</td>
+				<td>{{	$c->name	}}</td>
+				<td>{{	$c->posting_group	}}</td>
+				<td>@if($c->blocked > 0)	YES	@else NO @endif</td>
+			</tr>			
 		@endforeach
 		</tbody>
-	</table>
-
+		</table>
+	@endif
 @endif
